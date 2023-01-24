@@ -1,11 +1,7 @@
-<footer class="container-fluid bg-dark fixed-bottom mt-1">
-  <div class="row">
-    <div class="col-md text-light text-center py-1">
-      <p>Desarrollado por Alejandro Zampini</p>
-    </div>
-
-  </div>
+<footer class="container rounded mt-5" >
+  <p>Desarrollado por Alejandro Zampini</p>
 </footer>
+
       
       
     <!-- Bootstrap JavaScript Libraries -->

@@ -1,12 +1,12 @@
-<?php include 'template/header.php' ?>
+<?php include '../header.php' ?>
 
 <?php
     if(!isset($_GET["codigo"])){
-        header('location: index.php?mensaje=error');
+        header('location: notapedido.php?mensaje=error');
         exit();
     }
 
-    include_once 'model/conexion.php';
+    include_once '../model/conexion.php';
     $codigo = $_GET["codigo"];
 
     $sentencia = $bd -> prepare('select * from notapedido where id = ?;');
@@ -35,6 +35,10 @@
                         <label class="form-label"> Saldo: </label>
                         <input type="text" class="form-control" name="txtSaldo" value="<?php echo $notapedido->saldo?>" require>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label"> Estado: </label>
+                        <input type="text" class="form-control" name="txtEstado" value="<?php echo $notapedido->estado?>" require>
+                    </div>
                     <div class="d-grid">
                         <input type="hidden" name="codigo" value="<?php echo $notapedido->id?>">
                         <input type="submit" class="btn btn-primary" value="Registrar">
@@ -45,4 +49,4 @@
     </div>
 </div>
 
-<?php include 'template/footer.php' ?>
+<?php include '../footer.php' ?>
