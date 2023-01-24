@@ -8,12 +8,14 @@ if(empty($_POST["oculto"]) ||
     empty($_POST["txtTelefono"]) ||
     empty($_POST["txtTotal"]) ||    
     empty($_POST["txtVendedor"]) ||
+    empty($_POST["codigo"]) ||
     empty($_POST["txtSaldo"])){
     header('Location: notapedido.php?mensaje=falta');
     exit();
 }
 include_once '../model/conexion.php';
 $empresa = $_POST["txtEmpresa"];
+$codigo = $_POST["codigo"];
 $fecha = $_POST["FechaPedido"];
 $localidad = $_POST["txtLocalidad"];
 $direccion = $_POST["txtDireccion"];
@@ -32,8 +34,8 @@ echo $direccion;
 echo $descripcion;
 
 
-$sentencia = $bd ->prepare("INSERT INTO notapedido (empresa, fecha,vendedor, localidad, direccion, telefono, textarea, total, sena, saldo, estado) VALUES (?,?,?,?,?,?,?,?,?,?,?);");
-$resultado = $sentencia->execute([$empresa, $fecha,$vendedor, $localidad, $direccion, $telefono, $descripcion, $total, $sena, $saldo, $estado]);
+$sentencia = $bd ->prepare("INSERT INTO notapedido (empresa,codigo, fecha,vendedor, localidad, direccion, telefono, textarea, total, sena, saldo, estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
+$resultado = $sentencia->execute([$empresa,$codigo, $fecha,$vendedor, $localidad, $direccion, $telefono, $descripcion, $total, $sena, $saldo, $estado]);
 
 if ($resultado === TRUE) {
     header('location: notapedido.php?mensaje=registrado');

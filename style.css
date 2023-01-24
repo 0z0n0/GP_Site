@@ -31,6 +31,10 @@ body {
   animation: gradient 15s ease infinite;
 }
 
+.tablaNotaPedido{
+  font-size: 1rem;
+}
+
 footer {
   color: white;
   background-color: #1a1313 !important;

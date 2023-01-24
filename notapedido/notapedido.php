@@ -49,7 +49,7 @@ $empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
         ?>
       <!-- Fin Alerta -->
       <!-- Ingresar Datos -->
-        <div class="card border border-white">
+        <div class="card border border-white shadow-lg">
           <div class="card-header">
             ingresar datos:
           </div>
@@ -57,6 +57,10 @@ $empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
             <div class="mb-3">
               <label class="form-label"> Empresa: </label>
               <input type="text" class="form-control" name="txtEmpresa" autofocus require>
+            </div>
+            <div class="mb-3">
+              <label class="form-label"> Número orden: </label>
+              <input type="number" class="form-control" name="codigo" placeholder="Ejemplo: 6176">
             </div>
             <div class="mb-3">
               <label class="form-label"> Fecha Pedido: </label>
@@ -78,8 +82,8 @@ $empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
               <label class="form-label"> Vendedor: </label>
               <input type="text" class="form-control" name="txtVendedor"  require>
             </div>
-            <div class="mb-3">
-              <textarea name="txtDescripcion" rows="10" cols="60" placeholder="Escribir aquí Producto, detalle y cantidad" style = "resize: none; display: block; margin-left: auto;margin-right: auto;"  ></textarea>
+            <div class="mb-3 ">
+              <textarea class="rounded" name="txtDescripcion" rows="10" cols="90" placeholder="Escribir aquí Producto, detalle y cantidad" style = "resize: none; display: block; margin-left: auto;margin-right: auto;"  ></textarea>
             </div>
             <div class="mb-3">
               <label class="form-label"> Total: </label>
@@ -134,8 +138,9 @@ $empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
             <table class="table aling-middle text-white">
               <thead>
 
-                <tr>
+                <tr class="tablaNotaPedido">
                   <!-- <th scope="col">#</th> -->
+                  <th scope="col">N°</th>
                   <th scope="col">Empresa</th>
                   <th scope="col">Fecha</th>
                   <th scope="col">Vendedor</th>
@@ -159,7 +164,8 @@ $empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                   <tr>
                     <!-- <td scope="row"><?php echo $dato->id ?></td> -->
-                    <td> <?php echo $dato->empresa ?></td>
+                    <td> <?php echo $dato->codigo ?></td>
+                    <td> <?php echo $dato->empresa ?></td>                    
                     <td> <?php echo $dato->fecha ?></td>
                     <td> <?php echo $dato->vendedor ?></td>
                     <td> <?php echo $dato->localidad ?></td>
